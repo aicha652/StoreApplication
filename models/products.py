@@ -8,12 +8,12 @@ class Product(BaseModel, Base):
     __tablename__ = "products"
     if getenv("HBNB_TYPE_STORAGE") == "db":
         name = Column(String(80), nullable=False)
-        price = Column(Numeric(10,2), nullable=False)
-        stock = Column(Integer, nullable=False)
+        price = Column(Integer, nullable=False, default=0)
+        stock = Column(Integer, nullable=False, default=0)
         desc = Column(Text, nullable=False)
         pub_date = Column(DateTime, nullable=False,default=datetime.now())
-        category_id = Column(Integer, ForeignKey('category.id'),nullable=False)
-        category = relationship('Category' , cascade="all_delete", backref="products")
+        category_id = Column(Integer, ForeignKey('categories.id'),nullable=False)
+        #category = relationship('Category' , cascade="all,delete", backref="products")
         image_1 = Column(String(256), nullable=False, default='image1.jpg')
     else:
         name = ''
@@ -21,8 +21,8 @@ class Product(BaseModel, Base):
         stock = ''
         desc = ''
         pub_date = ''
-        category_id = ''
-        image = '' 
+        #category_id = ''
+        image = ''
     def __repr__(self):
         return '<Product %r>' % self.name
 
