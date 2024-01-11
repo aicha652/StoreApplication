@@ -1,5 +1,5 @@
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Boolean, String
 from os import getenv
 
 class User(BaseModel, Base):
@@ -9,6 +9,7 @@ class User(BaseModel, Base):
         username = Column(String(80), unique=True, nullable=False)
         email = Column(String(120), unique=True, nullable=False)
         password = Column(String(180), unique=False, nullable=False)
+        is_admin = Column(Boolean, default=False)
     else:
         name = ''
         username = ''
