@@ -9,7 +9,7 @@ class User(BaseModel, Base):
         username = Column(String(80), unique=True, nullable=False)
         email = Column(String(120), unique=True, nullable=False)
         password = Column(String(180), unique=False, nullable=False)
-        is_admin = Column(Boolean, default=False)
+        is_admin = Column(Boolean, nullable=False, default=False)
     else:
         name = ''
         username = ''
