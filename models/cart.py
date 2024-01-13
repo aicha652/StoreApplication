@@ -6,18 +6,16 @@ from flask_sqlalchemy import SQLAlchemy
 import models
 
 
-class Product(BaseModel, Base):
-    __tablename__ = "products"
+class Cart(BaseModel, Base):
+    __tablename__ = "carts"
     if models.storage_t == 'db':
-        name = Column(String(80), nullable=False)
-        price = Column(Integer, nullable=False, default=0)
-        desc = Column(Text, nullable=False)
-        image_1 = Column(String(256), nullable=False, default='image1.jpg')
+        quantity = Column(Integer, nullable=False)
+        user_id = Column(String(60), ForeignKey("users.id", onupdate='CASCADE',ondelete='CASCADE'), nullable=False)
+        product_id = Column(String(60), ForeignKey("products.id", onupdate='CASCADE',ondelete='CASCADE'), nullable=False)
     else:
-        name = ''
-        price = ''
-        desc = ''
-        image_1 = ''
+        quantity = ""
+        user_id = ""
+        product_id = ""
     
     def __init__(self, *args, **kwargs):
         """initializes user"""
