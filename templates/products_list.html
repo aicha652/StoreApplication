@@ -4,10 +4,10 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        <H1>States</H1>
+        <H1>Products</H1>
         <UL>
         {% for product in products %}
-            <LI>{{ product.id }}: <B>{{ product.name }}</B></LI>
+            <li>{{ product.name }}</li>
         {% endfor %}
         </UL>
     </BODY>
