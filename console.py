@@ -1,6 +1,5 @@
-import cmd
+from cmd import cmd
 from datetime import datetime
-import models
 from models.base_model import BaseModel
 from models.user import User
 from models.products import Product
@@ -11,9 +10,9 @@ import shlex  # for splitting the line along spaces except in double quotes
 classes = {"User": User, "Product": Product, "Order": Order, "Cart": Cart}
 
 
-class HBNBCommand(cmd.Cmd):
-    """ HBNH console """
-    prompt = '(hbnb) '
+class ECOMMCommand(Cmd):
+    """ ECOMM console """
+    prompt = '(ecomm) '
 
     def do_EOF(self, arg):
         """Exits console"""
@@ -155,4 +154,4 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    ECOMMCommand().cmdloop()
