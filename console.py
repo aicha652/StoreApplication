@@ -1,4 +1,5 @@
-from cmd import cmd
+from cmd import Cmd
+import models
 from datetime import datetime
 from models.base_model import BaseModel
 from models.user import User
