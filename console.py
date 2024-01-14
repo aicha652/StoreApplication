@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from cmd import Cmd
 import models
 from datetime import datetime

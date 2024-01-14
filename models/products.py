@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String, Numeric, Text, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
@@ -7,8 +8,8 @@ import models
 
 
 class Product(BaseModel, Base):
-    __tablename__ = "products"
     if models.storage_t == 'db':
+        __tablename__ = "products"
         name = Column(String(80), nullable=False)
         price = Column(Integer, nullable=False, default=0)
         desc = Column(Text, nullable=False)

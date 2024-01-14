@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from datetime import datetime
 import models
 from os import getenv
